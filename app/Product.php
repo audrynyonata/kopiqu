@@ -19,6 +19,6 @@ class Product extends Model
     }
 
     public function product_pictures(){
-    	return $this->hasMany('App\ProductPictures');
+    	return $this->hasMany('App\ProductPicture');
     }
 }
