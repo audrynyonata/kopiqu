@@ -34,6 +34,7 @@ form {
 
 @section('content')
 <div class="container">
+  <div class="brand" id="products">Order List</div>
   <div class="row">
     <div class="col-xs-8 col-lg-8 col-xs-offset-2 col-lg-offset-2">
       <div class="box">

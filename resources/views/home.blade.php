@@ -33,8 +33,9 @@ form {
 
 @section('content')
 <div class="container">
- <div class="row">
+    <div class="row">
         <div class="box">
+            <div class="row">
             <div class="col-lg-12 text-center">
                 <div id="carousel-example-generic" class="carousel slide">
                     <!-- Indicators -->
@@ -77,12 +78,14 @@ form {
                 </h2>
             </div>
         </div>
+        </div>
     </div>
 
     <div class="brand" id="products">Our Products</div>
 
     <div class="row">
-        <div class="box">
+    <div class="box">
+        <div class="row">
             @foreach($products as $product)
             <div class="col-xs-12 col-sm-4 col-md-3">
                 <hr>
@@ -116,6 +119,7 @@ form {
             </div>
         </div>
     </div>
+    </div>
     <div class="alert-template" style="display:none">
         <div class="alert alert-success fade in">
             <strong>Success!</strong> Added to cart. 
@@ -123,8 +127,9 @@ form {
     </div>
     <div class="address-bar">or Search by Category</div>
     
-    <div class="row">
-        <div class="box">
+<div class="row">
+    <div class="box">
+        <div class="row">
             @foreach($categories as $category)
             <div class="col-sm-3 col-md-3">
                 <a href="{{ route('category.search', $category->name) }}">{{ $category->name }}</a>
@@ -132,6 +137,7 @@ form {
             @endforeach
         </div>
     </div>
+</div>
 </div>
 
 @endsection

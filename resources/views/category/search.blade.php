@@ -35,6 +35,7 @@ form {
     <div class="brand" id="products">{{$category->name}}</div>
     <div class="row">
         <div class="box">
+            <div class="row">
             @foreach($products as $product)
             <div class="col-xs-12 col-sm-4 col-md-3">
                 <hr>
@@ -63,6 +64,7 @@ form {
                 </form>
             </div>
             @endforeach
+            </div>
         </div>
     </div>
     <div class="alert-template" style="display:none">

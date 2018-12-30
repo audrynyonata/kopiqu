@@ -19,7 +19,8 @@ class ProductController extends Controller
 
     public function admin()
     {
-        return Product::all();
+        $products = Product::with('category_products', 'category_products.product')->get();
+        return view('products.admin')->with(compact('products'));
     }
 
     /**
@@ -62,7 +63,8 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+        return view('products.edit')->with(compact('product'));
     }
 
     /**
@@ -74,7 +76,9 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::find($id);
+        $product->update($request->all());
+        return redirect()->route('products.admin');
     }
 
     /**
