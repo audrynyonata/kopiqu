@@ -17,6 +17,10 @@ Auth::routes();
 
 Route::get('/category/{category_name}', 'CategoryController@search')->name('category.search');
 
+Route::get('/admin/products', 'ProductController@admin')->name('products.admin')->middleware('admin');
+
+Route::get('/admin/orders', 'OrderController@admin')->name('orders.admin')->middleware('admin');
+
 Route::resources([
     'cart' => 'CartController',
     'categories' => 'CategoryController',

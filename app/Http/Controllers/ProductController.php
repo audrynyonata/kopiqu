@@ -14,6 +14,11 @@ class ProductController extends Controller
      */
     public function index()
     {
+        return redirect()->route('home');
+    }
+
+    public function admin()
+    {
         return Product::all();
     }
 

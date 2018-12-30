@@ -17,6 +17,12 @@ class OrderController extends Controller
         $this->middleware('auth');
     }
 
+    public function admin()
+    {
+        $orders = Order::all();
+        return view('orders.admin')->with(compact('orders'));
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +30,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::where('user_id', Auth::user()->id)->get()->load('order_products', 'order_products.product');
+        return view('orders.index')->with(compact('orders','order_products'));
     }
 
     /**
@@ -89,7 +96,7 @@ class OrderController extends Controller
         ]);
 
         $user->carts()->delete();
-        return redirect()->route('orders.show',$order->id);
+        return redirect()->route('orders.index');
     }
 
     /**
@@ -100,7 +107,7 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        return Order::find($id);
+        //
     }
 
     /**
@@ -123,7 +130,11 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $order = Order::find($id);
+        $order->update([
+            'status' => $request['status']
+        ]);
+        return response(204);
     }
 
     /**

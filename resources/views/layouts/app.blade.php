@@ -58,9 +58,10 @@
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi, {{ Auth::user()->name }}! <span class="caret"></span></a>
                       <ul class="dropdown-menu">
                         <li><a href="{{ route('orders.index')}}">My Order</a></li>
-                        @if(Auth::user()->role))
+                        @if(Auth::user()->role)
                         <li role="separator" class="divider"></li>
-                        <li><a href="#">Admin menu 1</a></li>
+                        <li><a href="{{ route('products.admin') }}">PRODUCT LIST</a></li>
+                        <li><a href="{{ route('orders.admin') }}">ORDER LIST</a></li>
                         @endif
                         <li role="separator" class="divider"></li>
                         <li><a href="{{ route('logout') }}"
