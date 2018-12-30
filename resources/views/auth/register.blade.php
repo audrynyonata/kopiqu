@@ -2,11 +2,10 @@
 
 @section('content')
 <div class="container">
+    <div class="brand" id="products">Register</div>
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
+        <div class="col-md-10 col-md-offset-1 full-height">
+            <div class="box">
                 <div class="card-body">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
@@ -66,6 +65,10 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
+
+                                &nbsp;or<a class="" href="{{ route('login') }}">
+                                    {{ __('Sign In') }}
+                                </a>
                             </div>
                         </div>
                     </form>
@@ -74,4 +77,12 @@
         </div>
     </div>
 </div>
+@endsection
+
+@section('footer')
+<script>
+    $('document').ready(function(){
+        $('.full-height').css('min-height',window.innerHeight);
+    })
+</script>
 @endsection

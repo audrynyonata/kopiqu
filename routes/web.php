@@ -11,10 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','HomeController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/category/{category_name}', 'CategoryController@search')->name('category.search');
+
+Route::resources([
+    'cart' => 'CartController',
+    'categories' => 'CategoryController',
+    'orders' => 'OrderController',
+    'products' => 'ProductController',
+]);
