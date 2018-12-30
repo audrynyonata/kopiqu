@@ -12,35 +12,31 @@
 
 @section('content')
 <div class="container">
-  <div class="brand" id="products">Edit Product</div>
+  <div class="brand" id="products">Create Product</div>
     <div class="row">
         <div class="box">
             <div class="row">
             <div class="col-xs-12 col-lg-12">
-                <form role="form" method="POST" action="{{route('products.update', $product->id)}}">
-                    {{ method_field('PUT') }}
+                <form role="form" method="POST" action="{{route('products.store')}}">
                     @csrf
+                    <input type="hidden" name="stock" value=100>
                     <div class="row">
                         <div class="form-group col-lg-12">
-                            <label>Product ID</label>
-                            <input type="text" readonly class="form-control" value="{{$product->id}}">
-                        </div>
-                        <div class="form-group col-lg-12">
                             <label>Name</label>
-                            <input type="text" name="name" class="form-control" value="{{$product->name}}">
+                            <input type="text" name="name" class="form-control">
                         </div>
                         <div class="form-group col-lg-12">
                             <label>Price</label>
-                            <input type="number" name="price" class="form-control"  value="{{$product->price}}">
+                            <input type="number" name="price" class="form-control">
                         </div>
                         <div class="form-group col-lg-12">
                             <label>Weight</label>
-                            <input type="text" name="weight" class="form-control"  value="{{$product->weight}}">
+                            <input type="text" name="weight" class="form-control">
                         </div>
                         <div class="clearfix"></div>
                         <div class="form-group col-lg-12">
                             <label>Description</label>
-                            <textarea class="form-control" rows="6" name="description">{{$product->description}}</textarea>
+                            <textarea class="form-control" rows="6" name="description"></textarea>
                         </div>
                         <div class="form-group col-lg-12">
                             <input type="hidden" name="save" value="contact">

@@ -44,6 +44,11 @@ form {
                 </ul>
             </div>
             </div>            
+            <div class="row">
+            <div class="col-xs-12 col-lg-12">
+            <a href="{{route('products.create')}}" class="btn btn-primary pull-right">Add new product</a>
+            <br>
+            </div>
         </div>
     </div>
 </div>
